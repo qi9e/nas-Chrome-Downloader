@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "NAS Downloader",
+  "version": "0.1.0",
+  "description": "Intercepts browser downloads and forwards them to a self-hosted Rust download server on your NAS.",
+  "permissions": ["downloads", "storage", "cookies"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "NAS Downloader"
+  },
+  "options_page": "options.html"
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, -apple-system, sans-serif; width: 340px; margin: 0; padding: 12px; font-size: 13px; }
+    h1 { font-size: 14px; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+    h1 .dot { width: 8px; height: 8px; border-radius: 50%; background: #9ca3af; flex: none; }
+    h1 .dot.ok { background: #16a34a; }
+    h1 .dot.err { background: #dc2626; }
+    .row { display: flex; align-items: center; justify-content: space-between; margin: 6px 0; gap: 8px; }
+    .status { font-size: 11px; opacity: 0.7; }
+    .list { max-height: 320px; overflow: auto; border-top: 1px solid rgba(127,127,127,0.25); padding-top: 8px; margin-top: 6px; }
+    .item { padding: 8px 0; border-bottom: 1px solid rgba(127,127,127,0.15); }
+    .item:last-child { border: none; }
+    .name { font-weight: 600; word-break: break-all; }
+    .meta { opacity: 0.7; margin-top: 4px; font-size: 11px; display: flex; align-items: center; gap: 6px; }
+    .progress { height: 4px; background: rgba(127,127,127,0.2); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+    .progress > div { height: 100%; background: #2563eb; transition: width 0.3s; }
+    .footer { display: flex; justify-content: space-between; margin-top: 10px; }
+    a { color: #2563eb; cursor: pointer; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    .badge { padding: 1px 6px; border-radius: 10px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
+    .badge.pending { background: rgba(127,127,127,0.2); }
+    .badge.downloading { background: #dbeafe; color: #1e40af; }
+    .badge.completed { background: #dcfce7; color: #166534; }
+    .badge.failed { background: #fee2e2; color: #991b1b; }
+    .badge.cancelled { background: rgba(127,127,127,0.2); }
+    .err-text { color: #dc2626; margin-top: 2px; font-size: 11px; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1><span id="dot" class="dot"></span><span>NAS Downloader</span></h1>
+  <div class="row">
+    <label><input type="checkbox" id="enabled"> Intercept downloads</label>
+    <span id="status" class="status">…</span>
+  </div>
+  <div id="list" class="list">Loading…</div>
+  <div class="footer">
+    <a id="open-options">Settings</a>
+    <a id="refresh">Refresh</a>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
